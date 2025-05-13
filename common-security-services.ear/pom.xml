@@ -1,0 +1,111 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>gov.va.vba.css</groupId>
+		<artifactId>common-security-services-parent</artifactId>
+		<version>1.0.0-0-SNAPSHOT</version>
+	</parent>
+	<groupId>gov.va.vba.css.cssiam</groupId>
+	<artifactId>common-security-services-ear</artifactId>
+	<version>1.0.0-0-SNAPSHOT</version>
+	<name>EAR for Common Security Services</name>
+	<packaging>ear</packaging>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<adminUrl>t3://localhost:9001</adminUrl>
+		<target>AdminServer</target>
+		<user>weblogic</user>
+		<password>welcome1</password>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>http://vbawbtappdev2.vba.va.gov:8081/nexus/content/repositories/central/</url>
+		</repository>
+		<repository>
+			<id>thirdparty</id>
+			<url>http://vbawbtappdev2.vba.va.gov:8081/nexus/content/repositories/thirdparty/</url>
+		</repository>
+		<repository>
+			<id>releases</id>
+			<url>http://vbawbtappdev2.vba.va.gov:8081/nexus/content/repositories/releases/</url>
+		</repository>
+	</repositories>
+	
+	<dependencies>
+    	<dependency>
+    		<groupId>gov.va.vba.css</groupId>
+			<artifactId>css-webservice</artifactId>
+			<version>1.0.0-0-SNAPSHOT</version>
+			<type>war</type>
+    	</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<earName>css-service-${project.version}</earName>
+           	 		<archive>
+                    	<manifest>
+                        	<addClasspath>true</addClasspath>
+                        	<addDefaultSpecificationEntries>false</addDefaultSpecificationEntries>
+                  			<addDefaultImplementationEntries>false</addDefaultImplementationEntries>
+                        </manifest>
+                    </archive>
+					<modules>
+						<webModule>
+							<groupId>gov.va.vba.css</groupId>
+    	  					<artifactId>css-webservice</artifactId>
+							<contextRoot>/css-webservices</contextRoot>
+						</webModule>
+					</modules>
+					<earSourceDirectory>${project.build.outputDirectory}</earSourceDirectory>
+					<resources>
+						<resource>
+							<directory>src/main/resources</directory>
+							<filtering>true</filtering>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+			
+<!-- 			<plugin> -->
+<!-- 				<artifactId>maven-antrun-plugin</artifactId> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<phase>pre-integration-test</phase> -->
+<!-- 						<configuration> -->
+<!-- 							<tasks> -->
+<!-- 								<taskdef name="wldeploy" -->
+<!-- 									classname="weblogic.ant.taskdefs.management.WLDeploy" -->
+<!-- 									classpathref="maven.compile.classpath" /> -->
+<!-- 								<wldeploy action="undeploy" name="cssiam-stationselector"		  -->
+<!-- 										adminurl="${adminUrl}" -->
+<!-- 										targets="${target}" -->
+<!-- 										user="${user}" -->
+<!-- 										password="${password}"		  -->
+<!-- 								 		verbose="true" -->
+<!-- 								 		failonerror="false"> -->
+<!-- 								</wldeploy> -->
+<!-- 								<wldeploy action="deploy" name="cssiam-stationselector" -->
+<!-- 									source="${basedir}\target\cssiam-stationselector-${project.version}.ear" -->
+<!-- 									adminurl="${adminUrl}" targets="${target}" user="${user}" -->
+<!-- 									password="${password}" verbose="true" usenonexclusivelock="false" -->
+<!-- 									failonerror="true" nostage="true" /> -->
+<!-- 							</tasks> -->
+							
+<!-- 						</configuration> -->
+<!-- 						<goals> -->
+<!-- 							<goal>run</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin>  -->
+		</plugins>
+	</build>
+</project>

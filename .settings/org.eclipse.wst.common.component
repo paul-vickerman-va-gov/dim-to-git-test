@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="CommonSecurityServices">
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/security/src/test/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/css-webservice/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/css-webservice/src/test/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/security/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/css-webservice/target/jaxws/wsimport/java"/>
+        <property name="context-root" value="CommonSecurityServices"/>
+        <property name="java-output-path" value="/CommonSecurityServices/target/classes"/>
+    </wb-module>
+</project-modules>

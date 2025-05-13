@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>gov.va.vba.css</groupId>
+		<artifactId>common-security-services-parent</artifactId>
+		<version>1.0.0-0-SNAPSHOT</version>
+	</parent>
+	<groupId>gov.va.vba.css</groupId>
+	<artifactId>css-webservice</artifactId>
+	<version>1.0.0-0-SNAPSHOT</version>
+	<name>CSS WebService</name>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<adminUrl>t3://localhost:9001</adminUrl>
+		<target>AdminServer</target>
+		<user>weblogic</user>
+		<password>welcome1</password>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>http://vbawbtappdev2.vba.va.gov:8081/nexus/content/repositories/central/</url>
+		</repository>
+		<repository>
+			<id>thirdparty</id>
+			<url>http://vbawbtappdev2.vba.va.gov:8081/nexus/content/repositories/thirdparty/</url>
+		</repository>
+		<repository>
+			<id>releases</id>
+			<url>http://vbawbtappdev2.vba.va.gov:8081/nexus/content/repositories/releases/</url>
+		</repository>
+	</repositories>
+	<dependencies>
+		<!-- Testing Dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/test/resources</directory>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+		<plugins>
+		    <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>1.12</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>wsimport</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<wsdlFiles>
+						<wsdlFile>schemas/css_webservice_1_0_0.wsdl</wsdlFile>
+					</wsdlFiles>
+					<wsdlDirectory>${basedir}/src/main/resources</wsdlDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<packaging>war</packaging>
+</project>

@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<xs:schema xmlns:tns="http://types.ws.css.vba.va.gov/services/v1" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	version="1.0" 
+	targetNamespace="http://types.ws.css.vba.va.gov/services/v1">
+
+	<xs:element name="getCssUserStationsByApplication" type="tns:getCssUserStationsByApplication" />
+	<xs:element name="getCssUserStationsByApplicationResponse" type="tns:getCssUserStationsByApplicationResponse" />
+	<xs:element name="getSecurityProfile" type="tns:getSecurityProfile" />
+	<xs:element name="getSecurityProfileResponse" type="tns:getSecurityProfileResponse" />
+
+	<xs:complexType name="getCssUserStationsByApplication">
+		<xs:sequence>
+			<xs:element name="arg0" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="getCssUserStationsByApplicationResponse">
+		<xs:sequence>
+			<xs:element name="return" type="tns:cssUser" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="cssUser">
+		<xs:sequence>
+			<xs:element name="networkLoginName" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="selectedStation" type="tns:userStation"
+				minOccurs="0" />
+			<xs:element name="userApplication" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="userStations" type="tns:userStation"
+				nillable="true" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="vaAdUsername" type="xs:string"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="userStation">
+		<xs:sequence>
+			<xs:element name="enabled" type="xs:boolean" />
+			<xs:element name="id" type="xs:string" minOccurs="0" />
+			<xs:element name="name" type="xs:string" minOccurs="0" />
+			<xs:element name="reasonCode" type="xs:string" minOccurs="0" />
+			<xs:element name="role" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="getSecurityProfile">
+		<xs:sequence>
+			<xs:element name="arg0" type="xs:string" minOccurs="0" />
+			<xs:element name="arg1" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="getSecurityProfileResponse">
+		<xs:sequence>
+			<xs:element name="return" type="tns:cssSecurityProfile"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="cssSecurityProfile">
+		<xs:complexContent>
+			<xs:extension base="tns:tuxedoSecurityProfile">
+				<xs:sequence />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="tuxedoSecurityProfile">
+		<xs:sequence>
+			<xs:element name="applRole" type="xs:string" minOccurs="0" />
+			<xs:element name="bdnNum" type="xs:string" minOccurs="0" />
+			<xs:element name="diagInd" type="xs:unsignedShort" />
+			<xs:element name="emailAddress" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="fileNum" type="xs:string" minOccurs="0" />
+			<xs:element name="firstName" type="xs:string" minOccurs="0" />
+			<xs:element name="functions" type="tns:function" nillable="true"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="jobTitle" type="xs:string" minOccurs="0" />
+			<xs:element name="lastName" type="xs:string" minOccurs="0" />
+			<xs:element name="message" type="xs:string" minOccurs="0" />
+			<xs:element name="middleName" type="xs:string" minOccurs="0" />
+			<xs:element name="participantId" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="phAreaCode" type="xs:string" minOccurs="0" />
+			<xs:element name="phExt" type="xs:string" minOccurs="0" />
+			<xs:element name="phNum" type="xs:string" minOccurs="0" />
+			<xs:element name="poaCodes" type="xs:string" nillable="true"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="retCode" type="xs:unsignedShort" />
+			<xs:element name="secLevel" type="xs:string" minOccurs="0" />
+			<xs:element name="secOfficeInd" type="xs:unsignedShort" />
+			<xs:element name="ssn" type="xs:string" minOccurs="0" />
+			<xs:element name="stationName" type="xs:string" minOccurs="0" />
+			<xs:element name="suffix" type="xs:string" minOccurs="0" />
+			<xs:element name="vaOrganization" type="xs:string"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="function">
+		<xs:sequence>
+			<xs:element name="assignedValue" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="disableInd" type="xs:unsignedShort" />
+			<xs:element name="name" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>
