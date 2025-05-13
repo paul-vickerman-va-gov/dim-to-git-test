@@ -10,7 +10,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gov.va.vba.css</groupId>
 	<artifactId>weblogic-deploy</artifactId>
-	<version>1.0.6-5</version>
+	<version>1.0.6-5-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Deploy CSS security to Weblogic</name>
 	<description>Deploy CSS security to Weblogic project</description>
