@@ -1,0 +1,113 @@
+<ns2:Assertion xmlns:ns2="urn:oasis:names:tc:SAML:2.0:assertion" ID="_b5ce25f0fb6060ff2989d0e0296cd85e1467" IssueInstant="2018-05-01T19:05:44Z" Version="2.0">
+		<ns2:Issuer Format="urn:oasis:names:tc:SAML:2.0:nameid-format:entity">xxxx-SSOI-IDP</ns2:Issuer>
+		<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+			<ds:SignedInfo>
+				<ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+				<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+				<ds:Reference URI="#_b5ce25f0fb6060ff2989d0e0296cd85e1467">
+					<ds:Transforms>
+						<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+						<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+					</ds:Transforms>
+					<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+					<ds:DigestValue>gDEVP6eTO3nYVv8O0xamAp61LyY=</ds:DigestValue>
+				</ds:Reference>
+			</ds:SignedInfo>
+			<ds:SignatureValue>
+TWpAYcrIMa580uTL1A0RE1skfBoGqzAHmJC1vh5nibLI8E5ClSYfwws9gjKGxhT4YuSdPxQsqks3
+Kp38gS7x0kvXhrOJzLiE0rRZM3j8Ot9sWXXDhkerk2bFaCLPrvCemZZTsmI4OT7PWpXvz13+DdhJ
+wN1s5BggB5oF77zfkO4MK/jdAFYnPR7LqVRd8qeO/w3YWI6h5/TZvC2J8ggC6++aoQRni/BPkHNG
+hSKWHQJQ78hd+edaSV+Bp8i/acJEC0uJ7OcNlDyNvy+/2ARrqxr8JZTfRJtWFVicO9CUeWDmGM3n
+PHFYRNEjXAKFjS1JwZFgHnO73sCmNn3pwPM7iw==
+			</ds:SignatureValue>
+			<ds:KeyInfo>
+				<ds:X509Data>
+					<ds:X509Certificate>
+MIIFBjCCA+6gAwIBAgIHPQAAAAm/rzANBgkqhkiG9w0BAQsFADBKMRMwEQYKCZImiZPyLGQBGRYD
+Z292MRIwEAYKCZImiZPyLGQBGRYCdmExHzAdBgNVBAMTFlZBLUludGVybmFsLVMyLUlDQTEtdjEw
+HhcNMTcxMjE5MjI0NzEyWhcNMjAxMjE4MjI0NzEyWjCBmDELMAkGA1UEBhMCVVMxETAPBgNVBAgT
+CFZpcmdpbmlhMREwDwYDVQQHEwhDdWxwZXBlcjEnMCUGA1UEChMeRGVwYXJ0bWVudCBvZiBWZXRl
+cmFucyBBZmZhaXJzMRkwFwYDVQQDExBsb2dvbi5pYW0udmEuZ292MR8wHQYJKoZIhvcNAQkBFhBB
+Q1NBZG1pbnNAdmEuZ292MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqyhWwhdTx/GA
+bo+MoHRAs8FrKYqNIIPL5DTlBY/L7T/hFWprsNgaCfRWa4No8CeIHlWkl52rDnUlLOwFY+3Y7TpS
+ijGZ+/IqoHwlv8pRSq3GhmSryjdFNgdDiFS/JsrIc62H3XBJ/Bg8DyPdcxIy+2NvOdrVqKXQ2B87
+Lh6rKrL9exh+XEfkbeCsuKkw3C3Vw8H+04Teejt4VwId8zhPIVeGFQ4B2RjlfUrgkkI2DAit7Kqy
+rMMRZ5imVRdREfaWn872hl7jFdw9I6j+yAGfqE+EGW91+uEFi/CEBr5/wk6JiiFjwCpVNyU5lbjN
+p+0ShGFpF6WJUtQVBr7cIlnMdQIDAQABo4IBoDCCAZwwHQYDVR0OBBYEFGJ90w7bYgsWz8mZzDBF
+hTli2icXMB8GA1UdIwQYMBaAFBtt3+s95eIN7xax0N5fWBpWy+TsMEkGA1UdHwRCMEAwPqA8oDqG
+OGh0dHA6Ly9jcmwucGtpLnZhLmdvdi9wa2kvY3JsL1ZBLUludGVybmFsLVMyLUlDQTEtdjEuY3Js
+MHsGCCsGAQUFBwEBBG8wbTBHBggrBgEFBQcwAoY7aHR0cDovL2FpYS5wa2kudmEuZ292L3BraS9h
+aWEvdmEvVkEtSW50ZXJuYWwtUzItSUNBMS12MS5jZXIwIgYIKwYBBQUHMAGGFmh0dHA6Ly9vY3Nw
+LnBraS52YS5nb3YwCwYDVR0PBAQDAgWgMD0GCSsGAQQBgjcVBwQwMC4GJisGAQQBgjcVCIHIwzOB
++fAGgaWfDYTggQiFwqpLBoOCn2CB4ItSAgFkAgEVMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEF
+BQcDATAnBgkrBgEEAYI3FQoEGjAYMAoGCCsGAQUFBwMCMAoGCCsGAQUFBwMBMA0GCSqGSIb3DQEB
+CwUAA4IBAQBVCc2Fjrk5+zLI/S7ZG32nIThf/tlUEsAIDcGPEdorOLVIoS5ILiRLWKMBeEzMeaH+
+rzD4zCkRZd8sME5S32MeDM6BYtkmE/sryYFtWxsmVqAenKcYb27zftTM/oCB2OOySeBFryLWxUbU
+PjA6iZvLjeLLRBqo8wdEJJWw5H7E6dQdHEz+h+27O58w1/jIpJRu7Qye6jE4i1yd3a7P2LCChH5K
+qurpztUzQSGylqqujW8Knm+FyM4Ovv+EhHDwgtXXf9b4jw5M+5CaViJW8JrCLFgT6cC9cUmKCvOG
+33njaB63myK/rrngqioMfxfICI1LEfUfImxfH0wulo9YKdzs
+					</ds:X509Certificate>
+				</ds:X509Data>
+			</ds:KeyInfo>
+		</ds:Signature>
+		<ns2:Subject>
+			<ns2:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified">First.Last@va.gov</ns2:NameID>
+			<ns2:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+				<ns2:SubjectConfirmationData NotOnOrAfter="2018-05-01T19:07:14Z" Recipient="https://xxxx.help.va.gov/cgi-bin/vba.cfg/php/admin/sso_launch.php?p_subject=Account.Emails.Address"/>
+			</ns2:SubjectConfirmation>
+		</ns2:Subject>
+		<ns2:Conditions NotBefore="2018-05-01T19:05:14Z" NotOnOrAfter="2018-05-01T19:07:14Z">
+			<ns2:AudienceRestriction>
+				<ns2:Audience>xxxx</ns2:Audience>
+			</ns2:AudienceRestriction>
+		</ns2:Conditions>
+		<ns2:AuthnStatement AuthnInstant="2018-05-01T19:05:44Z" SessionIndex="Fa+DkgGXZQYxoVkFtV+zAFBoXqA=51x/2A==" SessionNotOnOrAfter="2018-05-01T19:07:14Z">
+			<ns2:AuthnContext>
+				<ns2:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:Password</ns2:AuthnContextClassRef>
+			</ns2:AuthnContext>
+		</ns2:AuthnStatement>
+		<ns2:AttributeStatement>
+			<ns2:Attribute Name="sessionScope" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<ns2:AttributeValue>B</ns2:AttributeValue>
+			</ns2:Attribute>
+			<ns2:Attribute Name="issueInstant" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<ns2:AttributeValue>2018-05-01T19:05:44Z</ns2:AttributeValue>
+			</ns2:Attribute>
+			<ns2:Attribute Name="authNtype" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<ns2:AttributeValue>Direct</ns2:AttributeValue>
+			</ns2:Attribute>
+			<ns2:Attribute Name="proofingAuth" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<ns2:AttributeValue>VA-PIV</ns2:AttributeValue>
+			</ns2:Attribute>
+			<ns2:Attribute Name="assurLevel" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<ns2:AttributeValue>3</ns2:AttributeValue>
+			</ns2:Attribute>
+			<ns2:Attribute Name="transactionId" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<ns2:AttributeValue>00000000000000000000000001000000-1c74-5ae8ba88-07f8-018e23ff</ns2:AttributeValue>
+			</ns2:Attribute>
+			<ns2:Attribute Name="adSamAccountName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<ns2:AttributeValue>281mrodr</ns2:AttributeValue>
+			</ns2:Attribute>
+			<ns2:Attribute Name="adUpn" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<ns2:AttributeValue>First.Last@va.gov</ns2:AttributeValue>
+			</ns2:Attribute>
+			<ns2:Attribute Name="adEmail" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<ns2:AttributeValue>First.Last@va.gov</ns2:AttributeValue>
+			</ns2:Attribute>
+			<ns2:Attribute Name="VAUID" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<ns2:AttributeValue>29198</ns2:AttributeValue>
+			</ns2:Attribute>
+			<ns2:Attribute Name="firstName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<ns2:AttributeValue>First</ns2:AttributeValue>
+			</ns2:Attribute>
+			<ns2:Attribute Name="lastName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<ns2:AttributeValue>Last</ns2:AttributeValue>
+			</ns2:Attribute>
+			<ns2:Attribute Name="Organization" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<ns2:AttributeValue>Department Of Veterans Affairs</ns2:AttributeValue>
+			</ns2:Attribute>
+			<ns2:Attribute Name="OrganizationID" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+				<ns2:AttributeValue>urn:oid:2.16.840.1.113883.4.349</ns2:AttributeValue>
+			</ns2:Attribute>
+		</ns2:AttributeStatement>
+	</ns2:Assertion>
