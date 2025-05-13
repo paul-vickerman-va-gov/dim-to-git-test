@@ -11,7 +11,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		
-		<bep.framework.version>6.0.5-2-SNAPSHOT</bep.framework.version>
+		<bep.framework.version>6.0.5-3</bep.framework.version>
 		<ws.framework.version>2.0.3-9-SNAPSHOT</ws.framework.version>
 
 		<opensaml.version>2.6.0</opensaml.version>
