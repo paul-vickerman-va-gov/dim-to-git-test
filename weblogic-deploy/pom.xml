@@ -10,7 +10,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gov.va.vba.css</groupId>
 	<artifactId>weblogic-deploy</artifactId>
-	<version>1.0.6-0-SNAPSHOT</version>
+	<version>1.0.6-5</version>
 	<packaging>pom</packaging>
 	<name>Deploy CSS security to Weblogic</name>
 	<description>Deploy CSS security to Weblogic project</description>
@@ -26,12 +26,12 @@
 	
 	<repositories>
 		<repository>
-			<id>central</id>
-			<url>http://vbawbtappdev2.vba.va.gov:8081/nexus/content/repositories/central/</url>
+			<id>Central</id>
+			<url>https://nexus.dev.bep.vaec.va.gov/repository/Central/</url>
 		</repository>
 		<repository>
 			<id>thirdparty</id>
-			<url>http://vbawbtappdev2.vba.va.gov:8081/nexus/content/repositories/thirdparty/</url>
+			<url>https://nexus.dev.bep.vaec.va.gov/repository/thirdparty/</url>
 		</repository>
 	</repositories>
 	<dependencies>
