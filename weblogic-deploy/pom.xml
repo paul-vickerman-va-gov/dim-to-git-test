@@ -10,7 +10,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gov.va.vba.css</groupId>
 	<artifactId>weblogic-deploy</artifactId>
-	<version>1.0.5-8-SNAPSHOT</version>
+	<version>1.0.5-9</version>
 	<packaging>pom</packaging>
 	<name>Deploy CSS security to Weblogic</name>
 	<description>Deploy CSS security to Weblogic project</description>
@@ -21,7 +21,7 @@
     	<adminUrl>t3://localhost:7001</adminUrl>
     	<target>AdminServer</target>
     	<user>weblogic</user>
-    	<password>welcome1</password>
+    	<password>weblogic1</password>
 	</properties>
 	
 	<repositories>
