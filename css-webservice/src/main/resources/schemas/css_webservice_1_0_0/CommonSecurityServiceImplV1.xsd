@@ -6,8 +6,10 @@
 	targetNamespace="http://types.ws.css.vba.va.gov/services/v1">
 
 	<xs:element name="getCssUserStationsByApplication" type="tns:getCssUserStationsByApplication" />
+	<xs:element name="getCssUserStationsByApplicationUsername" type="tns:getCssUserStationsByApplicationUsername" />
 	<xs:element name="getCssUserStationsByApplicationResponse" type="tns:getCssUserStationsByApplicationResponse" />
 	<xs:element name="getSecurityProfile" type="tns:getSecurityProfile" />
+	<xs:element name="getSecurityProfileFromContext" type="tns:getSecurityProfileFromContext" />
 	<xs:element name="getSecurityProfileResponse" type="tns:getSecurityProfileResponse" />
 	
 	<!-- Faults -->
@@ -19,6 +21,12 @@
 	<xs:complexType name="getCssUserStationsByApplication">
 		<xs:sequence>
 			<xs:element name="cssApplicationName" type="xs:string" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="getCssUserStationsByApplicationUsername">
+		<xs:sequence>
+			<xs:element name="username" type="xs:string" minOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -54,6 +62,9 @@
 			<xs:element name="cssApplicationName" type="xs:string" minOccurs="1" />
 			<xs:element name="stationId" type="xs:string" minOccurs="1" />
 		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="getSecurityProfileFromContext">
 	</xs:complexType>
 
 	<xs:complexType name="getSecurityProfileResponse">

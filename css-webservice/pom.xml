@@ -96,7 +96,8 @@
 				</executions>
 				<configuration>
 					<wsdlFiles>
-						<wsdlFile>schemas/css_webservice_1_0_0.wsdl</wsdlFile>
+						<wsdlFile>schemas/css_webservice-saml_1_0_0.wsdl</wsdlFile>
+						<wsdlFile>schemas/css_webservice-ws_1_0_0.wsdl</wsdlFile>
 					</wsdlFiles>
 					<wsdlDirectory>${basedir}/src/main/resources</wsdlDirectory>
 				</configuration>

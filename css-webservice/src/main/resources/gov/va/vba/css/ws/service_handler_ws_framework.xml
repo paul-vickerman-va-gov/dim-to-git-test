@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<handler-chains xmlns="http://java.sun.com/xml/ns/javaee">
+  <handler-chain>    
+    <handler>
+      <handler-class>gov.va.vba.css.security.service.handler.MessageLoggingHandler</handler-class>
+    </handler>
+    <handler>
+      <handler-name>WSHandler</handler-name>
+      <handler-class>gov.va.vba.framework.esb.proxy.handler.WSAuthorizationHandler</handler-class>
+    </handler>
+  </handler-chain>
+</handler-chains>

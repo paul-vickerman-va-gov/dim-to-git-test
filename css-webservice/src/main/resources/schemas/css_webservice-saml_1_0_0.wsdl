@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://ws.css.vba.va.gov/css-webservice-saml-1.0" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" 
+	targetNamespace="http://ws.css.vba.va.gov/css-webservice-saml-1.0"
+	xmlns:types="http://types.ws.css.vba.va.gov/services/v1"
+	name="CommonSecurityServiceImplSAMLV1Service">
+	
+		
+	<wsp:UsingPolicy />
+	
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://types.ws.css.vba.va.gov/services/v1"
+				schemaLocation="css_webservice_1_0_0/CommonSecurityServiceImplV1.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	
+	<!-- getSecurityProfile -->
+	<wsdl:message name="getSecurityProfile">
+		<wsdl:part name="parameters" element="types:getSecurityProfile" />
+	</wsdl:message>
+	<wsdl:message name="getSecurityProfileResponse">
+		<wsdl:part name="parameters" element="types:getSecurityProfileResponse" />
+	</wsdl:message>
+	
+	<!-- getSecurityProfile Faults -->
+	<wsdl:message name="CSSAuthorizationFault">
+		<wsdl:part name="cssAuthFault" element="types:cssAuthFault" />
+	</wsdl:message>
+	<wsdl:message name="CSSFrameworkLayerFault">
+		<wsdl:part name="cssFrameworkFault" element="types:cssFrameworkFault" />
+	</wsdl:message>
+		
+	<!-- getCssUserStationsByApplication -->
+	<wsdl:message name="getCssUserStationsByApplication">
+		<wsdl:part name="parameters" element="types:getCssUserStationsByApplication" />
+	</wsdl:message>
+	<wsdl:message name="getCssUserStationsByApplicationResponse">
+		<wsdl:part name="parameters" element="types:getCssUserStationsByApplicationResponse" />
+	</wsdl:message>
+	
+	<!-- getCssUserStationsByApplication Faults -->
+	<wsdl:message name="CssUserRepositoryFault">
+		<wsdl:part name="cssRepoFault" element="types:cssRepoFault" />
+	</wsdl:message>
+	<wsdl:message name="CssUserRepositoryUnknownFault">
+		<wsdl:part name="cssRepoGenericFault" element="types:cssRepoGenericFault" />
+	</wsdl:message>	
+	
+	
+	<wsdl:portType name="CommonSecurityServiceSAMLWS">
+		<wsdl:operation name="getSecurityProfile">
+			<wsdl:input message="tns:getSecurityProfile" name="getSecurityProfile" />
+			<wsdl:output message="tns:getSecurityProfileResponse" name="getSecurityProfileResponse" />
+			<wsdl:fault message="tns:CSSAuthorizationFault" name="CSSAuthorizationFault" />
+			<wsdl:fault message="tns:CSSFrameworkLayerFault" name="CSSFrameworkLayerFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getCssUserStationsByApplication">
+			<wsdl:input message="tns:getCssUserStationsByApplication" name="getCssUserStationsByApplication" />
+			<wsdl:output message="tns:getCssUserStationsByApplicationResponse" name="getCssUserStationsByApplicationResponse" />
+			<wsdl:fault message="tns:CssUserRepositoryFault" name="CssUserRepositoryFault" />
+			<wsdl:fault message="tns:CssUserRepositoryUnknownFault" name="CssUserRepositoryUnknownFault" />
+		</wsdl:operation>
+	</wsdl:portType>
+	
+	<wsdl:binding name="CommonSecurityServiceImplSAMLV1PortBinding" type="tns:CommonSecurityServiceSAMLWS">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<wsdl:operation name="getSecurityProfile">
+			<soap:operation soapAction="" style="document"/>
+			<wsdl:input name="getSecurityProfile">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getSecurityProfileResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="CSSAuthorizationFault">
+				<soap:fault name="CSSAuthorizationFault" use="literal" />
+			</wsdl:fault>
+			<wsdl:fault name="CSSFrameworkLayerFault">
+				<soap:fault name="CSSFrameworkLayerFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getCssUserStationsByApplication">
+			<soap:operation soapAction="" style="document"/>
+			<wsdl:input name="getCssUserStationsByApplication">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getCssUserStationsByApplicationResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="CssUserRepositoryFault">
+				<soap:fault name="CssUserRepositoryFault" use="literal" />
+			</wsdl:fault>
+			<wsdl:fault name="CssUserRepositoryUnknownFault">
+				<soap:fault name="CssUserRepositoryUnknownFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	<wsdl:service name="CommonSecurityServiceSAMLV1">
+		<wsdl:port name="CommonSecurityServicePortSAMLV1" binding="tns:CommonSecurityServiceImplSAMLV1PortBinding">
+			<soap:address
+				location="http://localhost:7001/css-webservice/CommonSecurityServiceSAMLV1" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

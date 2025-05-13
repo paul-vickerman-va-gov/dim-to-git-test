@@ -11,13 +11,14 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		
-		<bep.framework.version>5.1.2-0-SNAPSHOT</bep.framework.version>
+		<bep.framework.version>6.0.1-5-SNAPSHOT</bep.framework.version>
+		<ws.framework.version>2.0.2-0-SNAPSHOT</ws.framework.version>
 		<dozer.version>5.4.0</dozer.version>
 
 		<opensaml.version>2.6.0</opensaml.version>
 		<wss4j.version>1.6.3</wss4j.version>
 		<spring.saml.version>1.0.2.RELEASE</spring.saml.version>
-		<spring.version>4.2.2.RELEASE</spring.version>
+		<spring.version>4.3.2.RELEASE</spring.version>
 		<spring.security.version>4.2.2.RELEASE</spring.security.version>
 
 		<sl4j.version>1.6.3</sl4j.version>
@@ -72,6 +73,20 @@
 			<groupId>gov.va.vba.framework</groupId>
 			<artifactId>framework-web</artifactId>
 			<version>${bep.framework.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>gov.va.vba.framework</groupId>
+					<artifactId>bep-base</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>gov.va.vba.framework</groupId>
+					<artifactId>framework-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>gov.va.vba.framework</groupId>
+					<artifactId>bep-ejb-core</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -91,6 +106,12 @@
 			<artifactId>bep-admin</artifactId>
 			<version>${bep.framework.version}</version>
 		</dependency>		
+		
+  		<dependency>
+			<groupId>gov.va.vba.framework</groupId>
+			<artifactId>ws-framework</artifactId>
+			<version>${ws.framework.version}</version>
+		</dependency>
 		
 		<!-- Mapping -->
 		<dependency>
@@ -300,9 +321,9 @@
 <!-- 		</dependency> -->
 
 		<dependency>
-			<groupId>weblogic</groupId>
-			<artifactId>wlfullclient</artifactId>
-			<version>10.3.6.0</version>
+            <groupId>weblogic</groupId>
+            <artifactId>wlfullclient</artifactId>
+            <version>12.2.1.3</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- Testing dependencies -->

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<handler-chains xmlns="http://java.sun.com/xml/ns/javaee">
+  <handler-chain>
+    <handler>
+      <handler-class>gov.va.vba.css.security.service.handler.MessageLoggingHandler</handler-class>
+    </handler>
+    <handler>
+      <handler-class>gov.va.vba.css.security.service.handler.SpringAuthenticationHandler</handler-class>
+    </handler>
+<!--     <handler> -->
+<!--       <handler-class>gov.va.vba.css.security.service.handler.WSSRequiredSignatureHandler</handler-class> -->
+<!--     </handler> -->
+<!--     <handler> -->
+<!--       <handler-class>gov.va.vba.vbms.correspondence.security.handler.incoming.WssRequiredEncryptionHandler</handler-class> -->
+<!--     </handler> -->
+<!--     <handler> -->
+<!--       <handler-class>gov.va.vba.vbms.correspondence.security.handler.incoming.WssRequiredSignatureHandler</handler-class> -->
+<!--     </handler>     -->
+<!--     <handler> -->
+<!--       <handler-class>gov.va.vba.vbms.correspondence.security.handler.incoming.WssRequiredBodyHandler</handler-class> -->
+<!--     </handler> -->
+<!--     <handler> -->
+<!--       <handler-class>gov.va.vba.vbms.correspondence.security.handler.incoming.WssRequiredTimestampHandler</handler-class> -->
+<!--     </handler> -->
+<!--     <handler> -->
+<!--       <handler-class>gov.va.vba.vbms.correspondence.security.handler.incoming.WssRequiredSAMLHandler</handler-class> -->
+<!--     </handler> -->
+<!--     <handler> -->
+<!--       <handler-class>gov.va.vba.vbms.correspondence.security.handler.incoming.WssVerificationHandler</handler-class> -->
+<!--     </handler> -->
+<!--     <handler> -->
+<!--       <handler-class>gov.va.vba.vbms.correspondence.security.handler.incoming.WssTimestampInjectionHandler</handler-class> -->
+<!--     </handler> -->
+<!--     <handler> -->
+<!-- 	  <handler-class>gov.va.vba.vbms.correspondence.security.handler.incoming.WssSigningHandler</handler-class> -->
+<!--     </handler> -->
+<!--     <handler> -->
+<!-- 	  <handler-class>gov.va.vba.vbms.correspondence.security.handler.incoming.WssEncryptingHandler</handler-class> -->
+<!--     </handler> -->
+<!--     <handler> -->
+<!-- 	  <handler-class>gov.va.vba.vbms.correspondence.security.handler.incoming.WssMustUnderstandRemovalHandler</handler-class> -->
+<!--     </handler> -->
+    <handler>
+      <handler-class>gov.va.vba.css.security.service.handler.MessageLoggingHandler</handler-class>
+    </handler>
+  </handler-chain>
+</handler-chains>

@@ -56,14 +56,25 @@
 	
 
   <servlet>
-    <servlet-name>CommonSecurityServiceImplV1ServiceServlethttp</servlet-name>
-    <servlet-class>gov.va.vba.css.ws.CommonSecurityServiceImplV1</servlet-class>
+    <servlet-name>CommonSecurityServiceImplSAMLV1ServiceServlethttp</servlet-name>
+    <servlet-class>gov.va.vba.css.ws.CommonSecurityServiceImplSAMLV1</servlet-class>
     <load-on-startup>0</load-on-startup>
   </servlet>
 	
   <servlet-mapping>
-    <servlet-name>CommonSecurityServiceImplV1ServiceServlethttp</servlet-name>
-    <url-pattern>/CommonSecurityServiceImplV1</url-pattern>
+    <servlet-name>CommonSecurityServiceImplSAMLV1ServiceServlethttp</servlet-name>
+    <url-pattern>/CommonSecurityServiceImplSAMLV1</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CommonSecurityServiceImplWSV1ServiceServlethttp</servlet-name>
+    <servlet-class>gov.va.vba.css.ws.CommonSecurityServiceImplWSV1</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+	
+  <servlet-mapping>
+    <servlet-name>CommonSecurityServiceImplWSV1ServiceServlethttp</servlet-name>
+    <url-pattern>/CommonSecurityServiceImplWSV1</url-pattern>
   </servlet-mapping>
   
 <!--     <ejb-local-ref> -->
