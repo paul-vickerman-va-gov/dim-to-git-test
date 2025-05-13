@@ -10,6 +10,10 @@ import gov.va.vba.css.ws.css_webservice_ws_1.CSSFrameworkLayerFault;
 import gov.va.vba.css.ws.css_webservice_ws_1.CommonSecurityServiceWS;
 import gov.va.vba.css.ws.css_webservice_ws_1.CssUserRepositoryFault;
 import gov.va.vba.css.ws.css_webservice_ws_1.CssUserRepositoryUnknownFault;
+import gov.va.vba.css.ws.types.services.v1.CssAuthFaultType;
+import gov.va.vba.css.ws.types.services.v1.CssFrameworkFaultType;
+import gov.va.vba.css.ws.types.services.v1.CssRepoFaultType;
+import gov.va.vba.css.ws.types.services.v1.CssRepoGenericFaultType;
 import gov.va.vba.css.ws.types.services.v1.CssSecurityProfile;
 import gov.va.vba.css.ws.types.services.v1.CssUser;
 import gov.va.vba.framework.esb.proxy.handler.HandlerContext;
@@ -83,9 +87,13 @@ public class CommonSecurityServiceImplWSV1 extends SpringBeanAutowiringSupport i
 			}
 				cssProfile = user.getUserProfile().getSecurityProfile();
 		} catch (CSSFrameworkLayerException e2) {
-			throw new CSSFrameworkLayerFault("Unable to get authorization due to a framework fault", null, e2);
+			CssFrameworkFaultType faultDetail = new CssFrameworkFaultType();
+			faultDetail.setMessage(e2.getMessage());
+			throw new CSSFrameworkLayerFault("Unable to get authorization due to a framework fault", faultDetail, e2);
 		} catch (CssWsException e3) {
-			throw new CSSAuthorizationFault("Unable to get user details from the incoming request", null, e3);
+			CssAuthFaultType faultDetail = new CssAuthFaultType();
+			faultDetail.setMessage(e3.getMessage());
+			throw new CSSAuthorizationFault("Unable to get user details from the incoming request", faultDetail, e3);
 		} 
 		
 		CssSecurityProfile response = dozzerMapper.map(cssProfile, CssSecurityProfile.class);
@@ -129,11 +137,17 @@ public class CommonSecurityServiceImplWSV1 extends SpringBeanAutowiringSupport i
 			user = commonSecuritySystemBean.getCSSStationsByApplication(username, applicationCSSName, ipAddress);
 			
 		} catch (CSSAuthorizationException e1) {
-			throw new CssUserRepositoryFault("User is not authorized to access the application", null, e1);
+			CssRepoFaultType faultDetail = new CssRepoFaultType();
+			faultDetail.setMessage(e1.getMessage());
+			throw new CssUserRepositoryFault("User is not authorized to access the application", faultDetail, e1);
 		} catch (CSSFrameworkLayerException e2) {
-			throw new CssUserRepositoryUnknownFault("Unable to get user authroization due to a framework fault", null, e2);
+			CssRepoGenericFaultType faultDetail = new CssRepoGenericFaultType();
+			faultDetail.setMessage(e2.getMessage());
+			throw new CssUserRepositoryUnknownFault("Unable to get user authroization due to a framework fault", faultDetail, e2);
 		} catch (CssWsException e3) {
-			throw new CssUserRepositoryFault("Unable to get user details from the incoming request", null, e3);
+			CssRepoFaultType faultDetail = new CssRepoFaultType();
+			faultDetail.setMessage(e3.getMessage());
+			throw new CssUserRepositoryFault("Unable to get user details from the incoming request", faultDetail, e3);
 		} 
 		
 		CssUser cssUserResponse = dozzerMapper.map(user, CssUser.class);

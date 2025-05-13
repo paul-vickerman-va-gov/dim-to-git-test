@@ -42,11 +42,14 @@ public class CommonSecuritySystemBeanImpl implements CommonSecuritySystemBean {
 		try {
 			cssUser = commonSecurityServiceV2.getCssUserStationsByApplication(username, applicationName, auditContex);
 		} catch (CssUserRepositoryException e) {
-			throw new CSSAuthorizationException("Unable to authorize user against CSS",e);
+			throw new CSSAuthorizationException(e.getMessage());
 		} catch (CssUserRepositoryUnknownException e) {
-			throw new CSSFrameworkLayerException("Exception caught while contacting Framework Sub-layers",e);
+			throw new CSSFrameworkLayerException(e.getMessage());
 		} catch (Exception e) {
-			throw new CSSFrameworkLayerException("Exception caught while contacting Framework Sub-layers",e);
+			if (e.getCause() != null && e.getCause() instanceof CssUserRepositoryException || e.getCause() instanceof CssUserRepositoryUnknownException) {
+				throw new CSSFrameworkLayerException(e.getCause().getMessage(), e);
+			}
+			throw new CSSFrameworkLayerException(e.getMessage());
 		}
 		
 		return cssUser;
@@ -90,7 +93,7 @@ public class CommonSecuritySystemBeanImpl implements CommonSecuritySystemBean {
 			}
 			
 		} catch (TuxedoException e) {
-			throw new CSSFrameworkLayerException("Exception caught while contacting Framework Sub-layers: ",e);
+			throw new CSSFrameworkLayerException("Exception caught while contacting Framework Sub-layers: "+e.getMessage(), e);
 		}
 		
 		return cssProfile;
