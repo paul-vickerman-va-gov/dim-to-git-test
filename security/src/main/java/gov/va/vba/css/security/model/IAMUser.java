@@ -16,6 +16,7 @@ public class IAMUser extends User {
 	private Element samlTokenXML;
 	private String organization = null;
 	private String samaccountname = null;
+	private String clientIPAddress = null;
 
 	public IAMUser(String username, String password, boolean enabled,
 			boolean accountNonExpired, boolean credentialsNonExpired,
@@ -77,6 +78,11 @@ public class IAMUser extends User {
 		this.samaccountname = samaccountname;
 	}
 
+	public String getClientIPAddress() {
+		return clientIPAddress;
+	}
 	
-
+	public void setClientIPAddress(String clientIPAddress) {
+		this.clientIPAddress = clientIPAddress;
+	}
 }

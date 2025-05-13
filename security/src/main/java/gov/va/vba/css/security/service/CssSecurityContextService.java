@@ -11,8 +11,8 @@ public interface CssSecurityContextService {
 	IAMUser getUserDetails();
 
 	String getUserName();
-
-	String getRemoteAddress();
+	
+	String getClientIPAddress();
 	
 	Element getUserSAMLCredentialsAsXML();
 	

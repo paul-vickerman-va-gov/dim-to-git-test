@@ -299,6 +299,12 @@
 <!-- 		    </exclusions> -->
 <!-- 		</dependency> -->
 
+		<dependency>
+			<groupId>weblogic</groupId>
+			<artifactId>wlfullclient</artifactId>
+			<version>10.3.6.0</version>
+			<scope>provided</scope>
+		</dependency>
 		<!-- Testing dependencies -->
 
 	</dependencies>

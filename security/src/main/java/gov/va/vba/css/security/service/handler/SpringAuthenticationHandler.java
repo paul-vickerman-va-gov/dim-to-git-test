@@ -8,30 +8,28 @@ import gov.va.vba.css.security.service.impl.SamlAuthenticationUserDetailsService
 import gov.va.vba.css.security.service.impl.CustomAuthenticationProvider;
 import gov.va.vba.framework.logging.Logger;
 
-
-
-
 import org.apache.ws.security.WSConstants;
 import org.apache.ws.security.saml.ext.AssertionWrapper;
 import org.apache.ws.security.util.WSSecurityUtil;
-//import org.apache.wss4j.common.saml.SamlAssertionWrapper;
-//import org.apache.wss4j.dom.WSConstants;
-//import org.apache.wss4j.dom.util.WSSecurityUtil;
 import org.opensaml.saml2.core.Assertion;
 import org.opensaml.saml2.core.Attribute;
 import org.opensaml.saml2.core.AttributeStatement;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.saml.SAMLCredential;
 import org.springframework.util.Assert;
 import org.w3c.dom.Element;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPHeader;
 import javax.xml.ws.handler.MessageContext;
 import javax.xml.ws.handler.soap.SOAPMessageContext;
+import javax.xml.ws.spi.http.HttpExchange;
 
+import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -41,9 +39,9 @@ import java.util.Set;
  */
 public class SpringAuthenticationHandler extends CSSWSHandler {
     private static Logger logger = Logger.getLogger(SpringAuthenticationHandler.class);
-	@Autowired
+	
+    @Autowired
 	private SecurityProperties props;
-    
     
     /**
      * handleMessage expects the user id to be included in the SOAP message
@@ -78,8 +76,12 @@ public class SpringAuthenticationHandler extends CSSWSHandler {
             	SOAPHeader header = context.getMessage().getSOAPHeader();
             	IAMUser iamUser = null;
             	iamUser = this.getIAMUser(header);
+            	
                 if(iamUser != null){
-                    final Authentication auth = new CustomAuthenticationProvider(iamUser);
+                	String clientIPAddress = getClientIPFromContext(context);
+                	logger.info("Client IP Address obtained from the SOAP Context: "+clientIPAddress);
+                	iamUser.setClientIPAddress(clientIPAddress);
+                	final Authentication auth = new CustomAuthenticationProvider(iamUser);
                     auth.setAuthenticated(true);
                     logger.warn("Logging in with [{"+auth.getPrincipal()+"}]");
                     SecurityContextHolder.getContext().setAuthentication(auth);
@@ -100,7 +102,12 @@ public class SpringAuthenticationHandler extends CSSWSHandler {
         return true;
     }
 
-    @Override
+    private String getClientIPFromContext(SOAPMessageContext context) {
+    	HttpServletRequest request = (HttpServletRequest)context.get(MessageContext.SERVLET_REQUEST);
+    	return request.getRemoteAddr();
+	}
+
+	@Override
     public boolean handleFault(SOAPMessageContext context) {
         return true;
     }
@@ -129,11 +136,9 @@ public class SpringAuthenticationHandler extends CSSWSHandler {
         Assert.notNull(samlElement,"Unable to find mandatory authnetication headers in the incomming request ");
         
         samlElement.getElementsByTagName("*");
-//        SamlAssertionWrapper assWrapper =  null;
         AssertionWrapper assWrapper =  null;
         
         try {
-//            assWrapper = new SamlAssertionWrapper(samlElement);
         	assWrapper = new AssertionWrapper(samlElement);
         } catch (Exception e) {
             logger.error("Error creating AssertionWrapper " + e.getMessage());

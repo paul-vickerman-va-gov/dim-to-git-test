@@ -1,7 +1,9 @@
 package gov.va.vba.css.security.service.impl;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.w3c.dom.Element;
 
+import gov.va.vba.css.security.exceptions.CssWsException;
 import gov.va.vba.css.security.model.IAMUser;
 import gov.va.vba.css.security.service.CssSecurityContextService;
 
@@ -9,32 +11,51 @@ public class SimpleCssSecurityContextServiceImpl implements CssSecurityContextSe
 
 	@Override
 	public boolean isAuthenticated() {
-		// TODO Auto-generated method stub
-		return false;
+		return (null != SecurityContextHolder.getContext().getAuthentication());
 	}
 
 	@Override
 	public IAMUser getUserDetails() {
-		// TODO Auto-generated method stub
-		return null;
+		Object obj = SecurityContextHolder.getContext().getAuthentication()
+				.getPrincipal();
+		if(obj == null){
+			throw new CssWsException("IAMUser Object is not set ");
+		}
+		if (obj instanceof IAMUser) {
+			return (IAMUser) obj;
+		}
+		throw new CssWsException("IAMUser Object is not set ");
 	}
 
 	@Override
 	public String getUserName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getRemoteAddress() {
-		// TODO Auto-generated method stub
-		return null;
+		String username = getUserDetails().getSamaccountname();
+		
+		/**
+		 * username is mandatory and must not be null or empty
+		 */
+		if (username == null || username.isEmpty()) {
+			throw new CssWsException("The required username is either null or empty");
+		}
+		
+		return username;
 	}
 
 	@Override
 	public Element getUserSAMLCredentialsAsXML() {
-		// TODO Auto-generated method stub
-		return null;
+		return getUserDetails().getSamlTokenXML();
 	}
 
+	@Override
+	public String getClientIPAddress() {
+		String clientIPAddress = getUserDetails().getClientIPAddress();
+		/**
+		 * clientIPAddress is mandatory and must not be null or empty
+		 */
+		if (clientIPAddress == null || clientIPAddress.isEmpty()) {
+			throw new CssWsException("The required Client IP Address is either null or empty");
+		}
+		
+		return clientIPAddress;
+	}
 }
