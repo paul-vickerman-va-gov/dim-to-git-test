@@ -6,7 +6,7 @@
 		<artifactId>common-security-services-parent</artifactId>
 		<version>1.0.0-0-SNAPSHOT</version>
 	</parent>
-	<groupId>gov.va.vba.css.cssiam</groupId>
+	<groupId>gov.va.vba.css</groupId>
 	<artifactId>common-security-services-ear</artifactId>
 	<version>1.0.0-0-SNAPSHOT</version>
 	<name>EAR for Common Security Services</name>
