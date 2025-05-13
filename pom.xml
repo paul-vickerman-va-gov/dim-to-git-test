@@ -4,15 +4,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gov.va.vba.css</groupId>
 	<artifactId>common-security-services-parent</artifactId>
-	<version>1.0.5-8-SNAPSHOT</version>
+	<version>1.0.5-9</version>
 	<packaging>pom</packaging>
 	<name>Parent BGS Common Security System Services Application</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		
-		<bep.framework.version>6.0.4-8-SNAPSHOT</bep.framework.version>
-		<ws.framework.version>2.0.3-8-SNAPSHOT</ws.framework.version>
+		<bep.framework.version>6.0.4-9</bep.framework.version>
+		<ws.framework.version>2.0.3-9</ws.framework.version>
 
 		<opensaml.version>2.6.0</opensaml.version>
 		<wss4j.version>1.6.3</wss4j.version>
