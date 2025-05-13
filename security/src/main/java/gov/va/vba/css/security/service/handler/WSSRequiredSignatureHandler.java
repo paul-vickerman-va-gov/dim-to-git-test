@@ -113,7 +113,7 @@ public class WSSRequiredSignatureHandler extends CSSWSHandler {
 		KeyStore ks = this.getKeystore();
 		Enumeration<String> aliases = this.getAliases(ks);
 		
-		while(aliases.hasMoreElements() && !wsSigValid) {
+		while(aliases.hasMoreElements() && !validSignature) {
 			String alias = aliases.nextElement();
 			
 			Certificate cert = null;
@@ -152,9 +152,10 @@ public class WSSRequiredSignatureHandler extends CSSWSHandler {
 					}
 				}
 			}
+			
+			validSignature = wsSigValid && assertSigValid;
 		}
 			
-		validSignature = wsSigValid && assertSigValid;
 		if (!validSignature) {
 			logger.error("Invalid signature found, WS Sig: " + wsSigValid + ", Assert Sig: " + assertSigValid);
 			throw new CssWsException("Invalid signature found, WS Sig: " + wsSigValid + ", Assert Sig: " + assertSigValid);
