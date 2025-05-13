@@ -16,10 +16,14 @@ import gov.va.vba.css.ws.types.services.v1.CssRepoFaultType;
 import gov.va.vba.css.ws.types.services.v1.CssRepoGenericFaultType;
 import gov.va.vba.css.ws.types.services.v1.CssSecurityProfile;
 import gov.va.vba.css.ws.types.services.v1.CssUser;
+import gov.va.vba.css.ws.types.services.v1.Function;
 import gov.va.vba.framework.esb.proxy.handler.HandlerContext;
 import gov.va.vba.framework.esb.proxy.model.UserContext;
 import gov.va.vba.framework.esb.transformers.TuxedoSecurityProfile;
 import gov.va.vba.framework.logging.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.jws.HandlerChain;
@@ -95,9 +99,14 @@ public class CommonSecurityServiceImplWSV1 extends SpringBeanAutowiringSupport i
 			faultDetail.setMessage(e3.getMessage());
 			throw new CSSAuthorizationFault("Unable to get user details from the incoming request", faultDetail, e3);
 		} 
+		CssSecurityProfile response = null;
+		if(cssProfile.getFunctions()== null){
+			List<TuxedoSecurityProfile.Function> functions = new ArrayList<TuxedoSecurityProfile.Function>();
+			cssProfile.setFunctions(functions);
+		}
 		
-		CssSecurityProfile response = dozzerMapper.map(cssProfile, CssSecurityProfile.class);
-		
+		 response  = dozzerMapper.map(cssProfile, CssSecurityProfile.class);
+	
 		return response;
 		
 	}
