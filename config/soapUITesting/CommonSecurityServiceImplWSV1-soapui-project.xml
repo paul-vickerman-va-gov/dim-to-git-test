@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="6844306e-6e19-4a8c-93f4-4facc886b1ad" activeEnvironment="Default" name="CommonSecurityServiceImplWSV1" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="acfeb283-6959-4974-841a-070f763e2aaa" wsaVersion="NONE" name="CommonSecurityServiceImplWSV1PortBinding" type="wsdl" bindingName="{http://ws.css.vba.va.gov/css-webservice-ws-1.0}CommonSecurityServiceImplWSV1PortBinding" soapVersion="1_1" anonymous="optional" definition="http://127.0.0.1:7001/css-webservices/CommonSecurityServiceImplWSV1?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://127.0.0.1:7001/css-webservices/CommonSecurityServiceImplWSV1?WSDL"><con:part><con:url>http://127.0.0.1:7001/css-webservices/CommonSecurityServiceImplWSV1?WSDL</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.0-b170407.2038 svn-revision#2eaca54d17a59d265c6fe886b7fd0027836c766c.-->
+<wsdl:definitions targetNamespace="http://ws.css.vba.va.gov/css-webservice-ws-1.0" name="CommonSecurityServiceImplWSV1Service" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.css.vba.va.gov/css-webservice-ws-1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:types="http://types.ws.css.vba.va.gov/services/v1">
+  <wsp:UsingPolicy/>
+  <wsdl:types>
+    <xsd:schema>
+      <xsd:import namespace="http://types.ws.css.vba.va.gov/services/v1" schemaLocation="http://127.0.0.1:7001/css-webservices/CommonSecurityServiceImplWSV1?xsd=1"/>
+    </xsd:schema>
+  </wsdl:types>
+  <!--getSecurityProfileFromContext-->
+  <wsdl:message name="getSecurityProfileFromContext">
+    <wsdl:part name="parameters" element="types:getSecurityProfileFromContext"/>
+  </wsdl:message>
+  <wsdl:message name="getSecurityProfileResponse">
+    <wsdl:part name="parameters" element="types:getSecurityProfileResponse"/>
+  </wsdl:message>
+  <!--getSecurityProfileFromContext Faults-->
+  <wsdl:message name="CSSAuthorizationFault">
+    <wsdl:part name="cssAuthFault" element="types:cssAuthFault"/>
+  </wsdl:message>
+  <wsdl:message name="CSSFrameworkLayerFault">
+    <wsdl:part name="cssFrameworkFault" element="types:cssFrameworkFault"/>
+  </wsdl:message>
+  <!--getCssUserStationsByApplicationUsername-->
+  <wsdl:message name="getCssUserStationsByApplicationUsername">
+    <wsdl:part name="parameters" element="types:getCssUserStationsByApplicationUsername"/>
+  </wsdl:message>
+  <wsdl:message name="getCssUserStationsByApplicationResponse">
+    <wsdl:part name="parameters" element="types:getCssUserStationsByApplicationResponse"/>
+  </wsdl:message>
+  <!--getCssUserStationsByApplicationUsername Faults-->
+  <wsdl:message name="CssUserRepositoryFault">
+    <wsdl:part name="cssRepoFault" element="types:cssRepoFault"/>
+  </wsdl:message>
+  <wsdl:message name="CssUserRepositoryUnknownFault">
+    <wsdl:part name="cssRepoGenericFault" element="types:cssRepoGenericFault"/>
+  </wsdl:message>
+  <wsdl:portType name="CommonSecurityServiceWS">
+    <wsdl:operation name="getSecurityProfileFromContext">
+      <wsdl:input message="tns:getSecurityProfileFromContext" name="getSecurityProfileFromContext"/>
+      <wsdl:output message="tns:getSecurityProfileResponse" name="getSecurityProfileResponse"/>
+      <wsdl:fault message="tns:CSSAuthorizationFault" name="CSSAuthorizationFault"/>
+      <wsdl:fault message="tns:CSSFrameworkLayerFault" name="CSSFrameworkLayerFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="getCssUserStationsByApplicationUsername">
+      <wsdl:input message="tns:getCssUserStationsByApplicationUsername" name="getCssUserStationsByApplicationUsername"/>
+      <wsdl:output message="tns:getCssUserStationsByApplicationResponse" name="getCssUserStationsByApplicationResponse"/>
+      <wsdl:fault message="tns:CssUserRepositoryFault" name="CssUserRepositoryFault"/>
+      <wsdl:fault message="tns:CssUserRepositoryUnknownFault" name="CssUserRepositoryUnknownFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CommonSecurityServiceImplWSV1PortBinding" type="tns:CommonSecurityServiceWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="getSecurityProfileFromContext">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSecurityProfileFromContext">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSecurityProfileResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSSAuthorizationFault">
+        <soap:fault name="CSSAuthorizationFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="CSSFrameworkLayerFault">
+        <soap:fault name="CSSFrameworkLayerFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCssUserStationsByApplicationUsername">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCssUserStationsByApplicationUsername">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCssUserStationsByApplicationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CssUserRepositoryFault">
+        <soap:fault name="CssUserRepositoryFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="CssUserRepositoryUnknownFault">
+        <soap:fault name="CssUserRepositoryUnknownFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CommonSecurityServiceWSV1">
+    <wsdl:port name="CommonSecurityServicePortWSV1" binding="tns:CommonSecurityServiceImplWSV1PortBinding">
+      <soap:address location="http://127.0.0.1:7001/css-webservices/CommonSecurityServiceImplWSV1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://127.0.0.1:7001/css-webservices/CommonSecurityServiceImplWSV1?xsd=1</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.0-b170407.2038 svn-revision#2eaca54d17a59d265c6fe886b7fd0027836c766c.-->
+<xs:schema version="1.0" targetNamespace="http://types.ws.css.vba.va.gov/services/v1" xmlns:tns="http://types.ws.css.vba.va.gov/services/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="getCssUserStationsByApplication" type="tns:getCssUserStationsByApplication"/>
+  <xs:element name="getCssUserStationsByApplicationUsername" type="tns:getCssUserStationsByApplicationUsername"/>
+  <xs:element name="getCssUserStationsByApplicationResponse" type="tns:getCssUserStationsByApplicationResponse"/>
+  <xs:element name="getSecurityProfile" type="tns:getSecurityProfile"/>
+  <xs:element name="getSecurityProfileFromContext" type="tns:getSecurityProfileFromContext"/>
+  <xs:element name="getSecurityProfileResponse" type="tns:getSecurityProfileResponse"/>
+  <!--Faults-->
+  <xs:element name="cssAuthFault" type="tns:CssAuthFaultType"/>
+  <xs:element name="cssFrameworkFault" type="tns:CssFrameworkFaultType"/>
+  <xs:element name="cssRepoFault" type="tns:CssRepoFaultType"/>
+  <xs:element name="cssRepoGenericFault" type="tns:CssRepoGenericFaultType"/>
+  <xs:complexType name="getCssUserStationsByApplication">
+    <xs:sequence>
+      <xs:element name="cssApplicationName" type="xs:string" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCssUserStationsByApplicationUsername">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCssUserStationsByApplicationResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:cssUser" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cssUser">
+    <xs:sequence>
+      <xs:element name="networkLoginName" type="xs:string" minOccurs="0"/>
+      <xs:element name="userApplication" type="xs:string" minOccurs="0"/>
+      <xs:element name="userStations" type="tns:userStation" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="userStation">
+    <xs:sequence>
+      <xs:element name="enabled" type="xs:boolean"/>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="reasonCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="role" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getSecurityProfile">
+    <xs:sequence>
+      <xs:element name="cssApplicationName" type="xs:string" minOccurs="1"/>
+      <xs:element name="stationId" type="xs:string" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getSecurityProfileFromContext"></xs:complexType>
+  <xs:complexType name="getSecurityProfileResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:cssSecurityProfile" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cssSecurityProfile">
+    <xs:sequence>
+      <xs:element name="applRole" type="xs:string" minOccurs="0"/>
+      <xs:element name="bdnNum" type="xs:string" minOccurs="0"/>
+      <xs:element name="diagInd" type="xs:string" minOccurs="0"/>
+      <xs:element name="emailAddress" type="xs:string" minOccurs="0"/>
+      <xs:element name="fileNum" type="xs:string" minOccurs="0"/>
+      <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+      <xs:element name="functions" type="tns:function" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="jobTitle" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastName" type="xs:string" minOccurs="0"/>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+      <xs:element name="middleName" type="xs:string" minOccurs="0"/>
+      <xs:element name="participantId" type="xs:string" minOccurs="0"/>
+      <xs:element name="phAreaCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="phExt" type="xs:string" minOccurs="0"/>
+      <xs:element name="phNum" type="xs:string" minOccurs="0"/>
+      <xs:element name="poaCodes" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="retCode" type="xs:int"/>
+      <xs:element name="secLevel" type="xs:string" minOccurs="0"/>
+      <xs:element name="secOfficeInd" type="xs:string" minOccurs="0"/>
+      <xs:element name="ssn" type="xs:string" minOccurs="0"/>
+      <xs:element name="stationName" type="xs:string" minOccurs="0"/>
+      <xs:element name="suffix" type="xs:string" minOccurs="0"/>
+      <xs:element name="vaOrganization" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="function">
+    <xs:sequence>
+      <xs:element name="assignedValue" type="xs:string" minOccurs="0"/>
+      <xs:element name="disableInd" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CssAuthFaultType">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string"/>
+      <xs:element name="detail" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CssFrameworkFaultType">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string"/>
+      <xs:element name="detail" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CssRepoFaultType">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string"/>
+      <xs:element name="detail" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CssRepoGenericFaultType">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string"/>
+      <xs:element name="detail" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://127.0.0.1:7001/css-webservices/CommonSecurityServiceImplWSV1</con:endpoint></con:endpoints><con:operation id="7b016d5d-229f-4dc2-b526-393fa137fe1e" isOneWay="false" action="" name="getCssUserStationsByApplicationUsername" bindingOperationName="getCssUserStationsByApplicationUsername" type="Request-Response" outputName="getCssUserStationsByApplicationResponse" inputName="getCssUserStationsByApplicationUsername" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d0ffc3e2-b002-4ad1-87a9-44a9b1958d76" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:7001/css-webservices/CommonSecurityServiceImplWSV1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://types.ws.css.vba.va.gov/services/v1">\r
+<soapenv:Header>
+<wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+<wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+  <wsse:Username>BGSREG01</wsse:Username> 
+  <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">Buda110!</wsse:Password> 
+</wsse:UsernameToken>
+<vaws:VaServiceHeaders xmlns:vaws="http://vbawebservices.vba.va.gov/vawss">
+  <vaws:CLIENT_MACHINE>10.224.104.174</vaws:CLIENT_MACHINE> 
+  <vaws:STN_ID>101</vaws:STN_ID> 
+  <vaws:applicationName>WSMS</vaws:applicationName> 
+  <vaws:ExternalUid>012345678901234567890123456789012345678</vaws:ExternalUid>
+  <vaws:ExternalKey>2556</vaws:ExternalKey>
+</vaws:VaServiceHeaders>
+</wsse:Security>
+</soapenv:Header>   
+   <soapenv:Body>\r
+      <v1:getCssUserStationsByApplicationUsername>\r
+         <username>BGSREG01</username>\r
+      </v1:getCssUserStationsByApplicationUsername>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.css.vba.va.gov/css-webservice-ws-1.0/CommonSecurityServiceWS/getCssUserStationsByApplicationUsername"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6cb2b8f4-fbd1-4269-b10c-c7740e6da684" isOneWay="false" action="" name="getSecurityProfileFromContext" bindingOperationName="getSecurityProfileFromContext" type="Request-Response" outputName="getSecurityProfileResponse" inputName="getSecurityProfileFromContext" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d5213f38-eefc-4b9f-9aea-5a9714893c10" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:7001/css-webservices/CommonSecurityServiceImplWSV1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://types.ws.css.vba.va.gov/services/v1">\r
+<soapenv:Header>
+<wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+<wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+  <wsse:Username>BGSREG01</wsse:Username> 
+  <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">Buda110!</wsse:Password> 
+</wsse:UsernameToken>
+<vaws:VaServiceHeaders xmlns:vaws="http://vbawebservices.vba.va.gov/vawss">
+  <vaws:CLIENT_MACHINE>10.224.104.174</vaws:CLIENT_MACHINE> 
+  <vaws:STN_ID>101</vaws:STN_ID> 
+  <vaws:applicationName>FOCAS</vaws:applicationName> 
+  <vaws:ExternalUid>012345678901234567890123456789012345678</vaws:ExternalUid>
+  <vaws:ExternalKey>2556</vaws:ExternalKey>
+</vaws:VaServiceHeaders>
+</wsse:Security>
+</soapenv:Header>   
+   <soapenv:Body>\r
+      <v1:getSecurityProfileFromContext/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.css.vba.va.gov/css-webservice-ws-1.0/CommonSecurityServiceWS/getSecurityProfileFromContext"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
