@@ -31,6 +31,9 @@ public class CommonSecuritySystemBeanImpl implements CommonSecuritySystemBean {
 	
 	@Override
 	public CssUser getCSSStationsByApplication(String username, String applicationName, String clientIpAddress) throws CSSAuthorizationException, CSSFrameworkLayerException {
+
+		//CSS username is always Uppercase 
+		username = username.toUpperCase();
 		
 		AuditContext auditContex = createNewAuditContext(applicationName, username, clientIpAddress, unselectedStation);
 		
@@ -54,6 +57,9 @@ public class CommonSecuritySystemBeanImpl implements CommonSecuritySystemBean {
 			String applicationCSSName, String stationId, String ipAddress) throws CSSAuthorizationException, CSSFrameworkLayerException {
 
 		TuxedoSecurityProfile cssProfile = null;
+		
+		//CSS username is always Uppercase 
+		username = username.toUpperCase();
 		
 		AuditContext auditContex = createNewAuditContext(applicationCSSName, username, ipAddress, stationId);
 		
