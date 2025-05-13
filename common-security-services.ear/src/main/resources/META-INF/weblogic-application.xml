@@ -6,10 +6,19 @@
 		<param-name>webapp.encoding.default</param-name>
 		<param-value>UTF-8</param-value>
 	</application-param>
-	<library-ref>
-   		<library-name>BGS-BEP-EJB-Share</library-name>
-   		<specification-version>1</specification-version>
-   		<exact-match>true</exact-match>
-	</library-ref>
+	
+<!-- 	<library-ref> -->
+<!--    		<library-name>BGS-BEP-EJB-Share</library-name> -->
+<!--    		<specification-version>1</specification-version> -->
+<!--    		<exact-match>true</exact-match> -->
+<!-- 	</library-ref> -->
+	
+<!-- 	<prefer-application-packages> -->
+<!--             <package-name>org.opensaml.xml.*</package-name> -->
+<!-- 	</prefer-application-packages> -->
+
+		<prefer-application-packages>
+	        <package-name>org.opensaml.*</package-name>
+	    </prefer-application-packages>
 </weblogic-application>
 

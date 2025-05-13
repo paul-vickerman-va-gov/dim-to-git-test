@@ -10,21 +10,26 @@
         http://www.springframework.org/schema/jee/spring-jee.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-        
-<!--   	<bean id="cssiamProperties" -->
-<!-- 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> -->
-<!-- 		<property name="locations"> -->
-<!-- 			<list> -->
-<!-- 				<value>classpath:cssiam_props/datasource.properties</value> -->
-<!-- 			</list> -->
-<!-- 		</property> -->
-<!-- 	</bean> -->
 
+	<import resource="classpath:security-context.xml" />
+	
   	<context:annotation-config />
 	<context:component-scan base-package="gov.va.vba.css" />
- 
- 	<jee:local-slsb id="commonSecurityServiceEJB" jndi-name="ejb/SecurityServiceV2Local"
+	        
+  	<bean id="cssProperties"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:css_props/css-security.properties</value>
+			</list>
+		</property>
+	</bean>
+
+ 	<jee:remote-slsb id="commonSecurityServiceEJB" jndi-name="VbaSecurityServiceV2#gov.va.vba.framework.services.CommonSecurityServiceRemoteV2"
       business-interface="gov.va.vba.framework.services.CommonSecurityServiceV2" />
+      
+<!--     <jee:local-slsb id="commonSecurityServiceEJB" jndi-name="ejb/SecurityServiceV2Local" -->
+<!--       business-interface="gov.va.vba.framework.services.CommonSecurityServiceV2" /> -->
 
 	<bean id="dozzerMapper" class="org.dozer.DozerBeanMapper">
   		<property name="mappingFiles">

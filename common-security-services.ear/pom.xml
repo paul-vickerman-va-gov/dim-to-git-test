@@ -50,6 +50,10 @@
 				<version>2.8</version>
 				<configuration>
 					<earName>css-service-${project.version}</earName>
+					<packagingExcludes>
+						**/ojdbc6-11.2.0.4.0.jar,
+						**/spring*4.3.5*.jar
+					</packagingExcludes>	
            	 		<archive>
                     	<manifest>
                         	<addClasspath>true</addClasspath>

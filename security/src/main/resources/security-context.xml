@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:security="http://www.springframework.org/schema/security" 
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+     <!-- spring security authentication config - choose SAML or local provider -->
+     <!-- SAML IdP -->
+     <import resource="classpath:saml-security-context.xml"/> 
+
+	
+	<bean id="securityProperties" class="gov.va.vba.css.security.util.SecurityProperties">
+		<property name="securityTurnedOn" value="${css.security.development.turnedon}" />
+	</bean>
+      
+     <!-- Local IdP -->
+     <!-- <import resource="classpath:basic-security-context.xml"/> -->
+     
+     <bean id="securityStrategy" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+    	<property name="targetClass"><value>org.springframework.security.core.context.SecurityContextHolder</value></property>
+   		<property name="targetMethod"><value>setStrategyName</value></property>
+   		<property name="arguments">
+     		<list>
+       			<value>MODE_INHERITABLETHREADLOCAL</value>
+     		</list>
+   		</property>
+      </bean>
+
+     <bean name="securityContextService" class="gov.va.vba.css.security.service.impl.SimpleCssSecurityContextServiceImpl">
+	</bean>
+	
+<!--     <bean class="org.apache.commons.configuration.XMLConfiguration" id="configuration"> -->
+<!--         <constructor-arg type="java.io.File" value="classpath:css_props/saml-token-verification-config.xml" /> -->
+<!--     </bean> -->
+
+    <bean id="wssVerificationBean" class="gov.va.vba.css.security.service.handler.WssSecurityBean">
+        <property name="keyAlias" value="${security.certificate.css.public.alias}"/>
+        <property name="keyPassword"  value="${security.certificate.css.public.password}"/>
+   		<property name="cryptoproperties" ref="cryptoProperties" />        
+    </bean>
+
+    <bean id="wssSigningBean" class="gov.va.vba.css.security.service.handler.WssSecurityBean">
+        <property name="keyAlias" value="${security.certificate.css.public.alias}"/>
+        <property name="keyPassword"  value="${security.certificate.css.public.password}"/>
+   		<property name="cryptoproperties" ref="cryptoProperties" />        
+    </bean>
+
+    <bean id="wssEncryptionBean" class="gov.va.vba.css.security.service.handler.WssSecurityBean">
+        <property name="keyAlias" value="${security.certificate.css.public.alias}"/>
+        <property name="keyPassword"  value="${security.certificate.css.public.password}"/> 
+   		<property name="cryptoproperties" ref="cryptoProperties" />
+   		<property name="encryptExclusions">
+   			<list>
+   			</list>
+   		</property>
+   	</bean>
+
+<!--     <bean id="keystoreCallbackHandler" class="gov.va.vba.vbms.correspondence.security.callbacks.KeystoreCallbackHandler"> -->
+<!--         <property name="users"> -->
+<!--           <map> -->
+<!--             <entry  -->
+<!--                 key="${security.certificate.css.public.alias}"  -->
+<!--                 value="${security.certificate.css.public.password}" /> -->
+<!--           </map> -->
+<!--         </property> -->
+<!--     </bean> -->
+
+    <bean id="springAuthenticationHandlerBean" class="gov.va.vba.css.security.service.handler.WssSecurityBean">
+        <property name="audience" value="Ignored"/>
+    </bean>
+
+	<bean id="cryptoProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="properties">
+			<props>
+				<prop key="org.apache.ws.security.crypto.provider">org.apache.ws.security.components.crypto.Merlin</prop>
+				<prop key="org.apache.ws.security.crypto.merlin.keystore.type">jks</prop>
+				<prop key="org.apache.ws.security.crypto.merlin.keystore.password">${css.security.keystore.keypass}</prop>
+				<prop key="org.apache.ws.security.crypto.merlin.keystore.alias">${css.security.keystore.alias}</prop>
+				<prop key="org.apache.ws.security.crypto.merlin.keystore.file">${css.security.keystore}</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

@@ -33,14 +33,21 @@
 		</repository>
 	</repositories>
 	<dependencies>
+		<dependency>
+			<groupId>gov.va.vba.css</groupId>
+			<artifactId>security</artifactId>
+			<version>1.0.0-0-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		
 		<!-- Testing Dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
-		</dependency>
-
+		</dependency>		
 	</dependencies>
 
 	<build>
@@ -59,6 +66,15 @@
 			</resource>
 		</resources>
 		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration> 
+					<packagingExcludes>
+						WEB-INF/lib/ojdbc6-11.2.0.4.0.jar,
+						WEB-INF/lib/spring*4.3.5*.jar
+					</packagingExcludes>	
+				</configuration>
+			</plugin>
 		    <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>

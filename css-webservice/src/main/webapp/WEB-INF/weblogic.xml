@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-web-app xmlns="http://www.bea.com/ns/weblogic/90">
+	<session-descriptor>
+		<timeout-secs>3600</timeout-secs>
+		<invalidation-interval-secs>60</invalidation-interval-secs>
+		<persistent-store-type>replicated_if_clustered</persistent-store-type>
+		<url-rewriting-enabled>true</url-rewriting-enabled>
+	</session-descriptor>
+
+	<jsp-descriptor>
+		<keepgenerated>true</keepgenerated>
+		<page-check-seconds>5</page-check-seconds>
+		<precompile>false</precompile>
+	</jsp-descriptor>
+
+	<context-root>bep-saml-app</context-root>
+	<container-descriptor>
+		<prefer-application-packages>
+	        <package-name>org.opensaml.*</package-name>
+	    </prefer-application-packages>
+    </container-descriptor>
+</weblogic-web-app>

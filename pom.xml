@@ -10,12 +10,18 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<spring.version>4.3.22.RELEASE</spring.version>
-		<spring.security.version>4.2.11.RELEASE</spring.security.version>
-		<spring.boot.version>2.0.0.RELEASE</spring.boot.version>
+		
 		<bep.framework.version>5.1.2-0-SNAPSHOT</bep.framework.version>
-		<junit.version>4.12</junit.version>
-		<sl4j.version>1.7.22</sl4j.version>
+		<dozer.version>5.4.0</dozer.version>
+
+		<opensaml.version>2.6.0</opensaml.version>
+		<wss4j.version>1.6.3</wss4j.version>
+		<spring.saml.version>1.0.2.RELEASE</spring.saml.version>
+		<spring.version>4.2.2.RELEASE</spring.version>
+		<spring.security.version>4.2.2.RELEASE</spring.security.version>
+
+		<sl4j.version>1.6.3</sl4j.version>
+		<junit.version>4.4</junit.version>
 		<powermock.version>1.6.2</powermock.version>
 	</properties>
 
@@ -53,124 +59,19 @@
 			<url>http://vbawbtappdev2.vba.va.gov:8081/nexus/content/repositories/releases/</url>
 		</repository>
 	</repositories>
-
 	<dependencies>
-		<!-- Spring Core Dependency -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${spring.security.version}</version>
-			<classifier />
-		</dependency>
-		
-		<!-- Mapping -->
-		
-		<dependency>
-    		<groupId>net.sf.dozer</groupId>
-    		<artifactId>dozer</artifactId>
-    		<version>5.4.0</version>
-		</dependency>
-		
-		<!-- Framework dependencies for the Security Filter -->
+	
+			<!-- Framework dependencies -->
 
 		<dependency>
 			<groupId>gov.va.vba.framework</groupId>
 			<artifactId>framework</artifactId>
 			<version>${bep.framework.version}</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>c3p0</artifactId>
-					<groupId>c3p0</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>commons-lang</artifactId>
-					<groupId>commons-lang</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>commons-discovery</artifactId>
-					<groupId>commons-discovery</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>commons-logging</artifactId>
-					<groupId>commons-logging</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>commons-beanutils-core</artifactId>
-					<groupId>commons-beanutils</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-web</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-aop</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>log4j</artifactId>
-					<groupId>log4j</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-webmvc</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>ojdbc6</artifactId>
-					<groupId>com.oracle</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>commons-beanutils</artifactId>
-					<groupId>commons-beanutils</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-aspects</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>
-						commons-beanutils-bean-collections
-					</artifactId>
-					<groupId>commons-beanutils</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>ehcache-core</artifactId>
-					<groupId>net.sf.ehcache</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-orm</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>gov.va.vba.framework</groupId>
 			<artifactId>framework-web</artifactId>
 			<version>${bep.framework.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>gov.va.vba.framework</groupId>
-					<artifactId>bep-base</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>gov.va.vba.framework</groupId>
-					<artifactId>framework-core</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>gov.va.vba.framework</groupId>
-					<artifactId>bep-ejb-core</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -183,142 +84,220 @@
 			<groupId>gov.va.vba.framework</groupId>
 			<artifactId>bep-domain</artifactId>
 			<version>${bep.framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>gov.va.vba.framework</groupId>
+			<artifactId>bep-admin</artifactId>
+			<version>${bep.framework.version}</version>
+		</dependency>		
+		
+		<!-- Mapping -->
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<version>${dozer.version}</version>
+		</dependency>
+		
+		<!-- if you use WebLogic -->
+		<!-- All weblogic 10.3.6.0 dependencies must be set to scope=provided -->
+		<!-- This just needs to be in the parent pom. -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>xml-apis</groupId> -->
+<!-- 			<artifactId>xml-apis</artifactId> -->
+<!-- 			<version>1.4.01</version> -->
+<!-- 			<scope>provided</scope> -->
+<!-- 		</dependency> -->
+		<!-- <dependency> <groupId>com.rsa</groupId> <artifactId>cryptoj</artifactId> 
+			<version>5.0</version> <scope>provided</scope> </dependency> -->
+			
+		<dependency>
+			<groupId>org.opensaml</groupId>
+			<artifactId>opensaml</artifactId>
+			<version>${opensaml.version}</version>
+			<scope>compile</scope>
 			<exclusions>
 				<exclusion>
-					<artifactId>c3p0</artifactId>
-					<groupId>c3p0</groupId>
+					<artifactId>xml-apis</artifactId>
+					<groupId>org.apache.xerces</groupId>
 				</exclusion>
 				<exclusion>
-					<artifactId>commons-lang</artifactId>
-					<groupId>commons-lang</groupId>
+					<artifactId>jcl-over-slf4j</artifactId>
+					<groupId>org.slf4j</groupId>
 				</exclusion>
 				<exclusion>
-					<artifactId>commons-discovery</artifactId>
-					<groupId>commons-discovery</groupId>
+					<artifactId>serializer</artifactId>
+					<groupId>org.apache.xerces</groupId>
 				</exclusion>
 				<exclusion>
-					<artifactId>commons-beanutils-core</artifactId>
-					<groupId>commons-beanutils</groupId>
+					<artifactId>log4j-over-slf4j</artifactId>
+					<groupId>org.slf4j</groupId>
 				</exclusion>
 				<exclusion>
 					<artifactId>commons-logging</artifactId>
 					<groupId>commons-logging</groupId>
 				</exclusion>
-				<exclusion>
-					<artifactId>spring-web</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-aop</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
+			</exclusions>
+		</dependency>	
+
+		<dependency>
+    		<groupId>org.apache.ws.security</groupId>
+			<artifactId>wss4j</artifactId>
+    		<version>${wss4j.version}</version>
+		</dependency>
+		
+<!-- 		<dependency> -->
+<!--     		<groupId>org.apache.wss4j</groupId> -->
+<!-- 			<artifactId>wss4j-ws-security-dom</artifactId> -->
+<!--     		<version>${wss4j.version}</version> -->
+<!-- 		</dependency> -->
+				
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${sl4j.version}</version>
+			<scope>provided</scope>
+			<exclusions>
 				<exclusion>
 					<artifactId>log4j</artifactId>
 					<groupId>log4j</groupId>
 				</exclusion>
 				<exclusion>
-					<artifactId>spring-webmvc</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>ojdbc6</artifactId>
-					<groupId>com.oracle</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>commons-beanutils</artifactId>
-					<groupId>commons-beanutils</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-aspects</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>
-						commons-beanutils-bean-collections
-					</artifactId>
-					<groupId>commons-beanutils</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>ehcache-core</artifactId>
-					<groupId>net.sf.ehcache</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-orm</artifactId>
-					<groupId>org.springframework</groupId>
+					<artifactId>slf4j-api</artifactId>
+					<groupId>org.slf4j</groupId>
 				</exclusion>
 			</exclusions>
 		</dependency>
 		
 		<dependency>
-			<groupId>gov.va.vba.framework</groupId>
-			<artifactId>bep-admin</artifactId>
-			<version>${bep.framework.version}</version>
-			<scope>test</scope>
+			<groupId>org.springframework.security.extensions</groupId>
+			<artifactId>spring-security-saml2-core</artifactId>
+			<version>${spring.saml.version}</version>
+			<scope>compile</scope>
 			<exclusions>
 				<exclusion>
-					<artifactId>c3p0</artifactId>
-					<groupId>c3p0</groupId>
+					<artifactId>slf4j-api</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-aop</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring.security.version}</version>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-aop</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security.version}</version>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-jdbc</artifactId>
+					<groupId>org.springframework</groupId>
 				</exclusion>
 				<exclusion>
-					<artifactId>commons-lang</artifactId>
-					<groupId>commons-lang</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>commons-discovery</artifactId>
-					<groupId>commons-discovery</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>commons-beanutils-core</artifactId>
-					<groupId>commons-beanutils</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>commons-logging</artifactId>
-					<groupId>commons-logging</groupId>
+					<artifactId>spring-tx</artifactId>
+					<groupId>org.springframework</groupId>
 				</exclusion>
 				<exclusion>
 					<artifactId>spring-web</artifactId>
 					<groupId>org.springframework</groupId>
 				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+			<scope>compile</scope>
+			<exclusions>
 				<exclusion>
 					<artifactId>spring-aop</artifactId>
 					<groupId>org.springframework</groupId>
 				</exclusion>
-				<exclusion>
-					<artifactId>log4j</artifactId>
-					<groupId>log4j</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-webmvc</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>ojdbc6</artifactId>
-					<groupId>com.oracle</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>commons-beanutils</artifactId>
-					<groupId>commons-beanutils</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-aspects</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>
-						commons-beanutils-bean-collections
-					</artifactId>
-					<groupId>commons-beanutils</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>ehcache-core</artifactId>
-					<groupId>net.sf.ehcache</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-orm</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
 			</exclusions>
 		</dependency>
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>javax.servlet</groupId> -->
+<!-- 			<artifactId>jsp-api</artifactId> -->
+<!-- 			<version>2.0</version> -->
+<!-- 			<scope>provided</scope> -->
+<!-- 		</dependency> -->
+		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.basepom.maven</groupId> -->
+<!-- 		    <artifactId>duplicate-finder-maven-plugin</artifactId> -->
+<!-- 		    <version>1.2.1</version> -->
+<!-- 		    <exclusions> -->
+<!-- 		    	<exclusion> -->
+<!-- 		    		<artifactId>log4j</artifactId> -->
+<!-- 		    		<groupId>log4j</groupId> -->
+<!-- 		    	</exclusion> -->
+<!-- 		    	<exclusion> -->
+<!-- 		    		<artifactId>slf4j-api</artifactId> -->
+<!-- 		    		<groupId>org.slf4j</groupId> -->
+<!-- 		    	</exclusion> -->
+<!-- 		    </exclusions> -->
+<!-- 		</dependency> -->
 
 		<!-- Testing dependencies -->
 
