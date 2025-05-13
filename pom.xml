@@ -4,15 +4,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gov.va.vba.css</groupId>
 	<artifactId>common-security-services-parent</artifactId>
-	<version>1.0.6-0</version>
+	<version>1.0.6-5</version>
 	<packaging>pom</packaging>
 	<name>Parent BGS Common Security System Services Application</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		
-		<bep.framework.version>6.0.5-7</bep.framework.version>
-		<ws.framework.version>2.0.4-0</ws.framework.version>
+		<bep.framework.version>6.0.6-4</bep.framework.version>
+		<ws.framework.version>2.0.4-6</ws.framework.version>
 
 		<opensaml.version>2.6.0</opensaml.version>
 		<wss4j.version>1.6.3</wss4j.version>
@@ -30,33 +30,33 @@
 		<module>common-security-services.ear</module>
 	</modules>
 
-	<distributionManagement>
-		<repository>
-			<id>deployment</id>
-			<url>http://vaausappcrp890.aac.va.gov:8081/nexus/content/repositories/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>deployment</id>
-			<name>Internal Releases</name>
-			<url>http://vaausappcrp890.aac.va.gov:8081/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <url>https://nexus.dev.bep.vaec.va.gov/repository/Releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-releases</id>
+            <name>Internal Releases</name>
+            <url>https://nexus.dev.bep.vaec.va.gov/repository/Snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
-	<!-- VBA BEP Nexus Repositories for getting maven dependencies -->
+    <!-- VBA BEP Nexus Repositories for getting maven dependencies -->
 
-	<repositories>
-		<repository>
-			<id>central</id>
-			<url>http://vaausappcrp890.aac.va.gov:8081/nexus/content/repositories/central/</url>
-		</repository>
-		<repository>
-			<id>thirdparty</id>
-			<url>http://vaausappcrp890.aac.va.gov:8081/nexus/content/repositories/thirdparty/</url>
-		</repository>
-		<repository>
-			<id>releases</id>
-			<url>http://vaausappcrp890.aac.va.gov:8081/nexus/content/repositories/releases/</url>
-		</repository>
+    <repositories>
+    <repository>
+        <id>Central</id>
+        <url>https://nexus.dev.bep.vaec.va.gov/repository/Central/</url>
+    </repository>
+    <repository>
+        <id>thirdparty</id>
+        <url>https://nexus.dev.bep.vaec.va.gov/repository/thirdparty/</url>
+    </repository>
+    <repository>
+        <id>nexus-releases</id>
+        <url>https://nexus.dev.bep.vaec.va.gov/repository/Releases/</url>
+    </repository>
 	</repositories>
 	<dependencies>
 	
