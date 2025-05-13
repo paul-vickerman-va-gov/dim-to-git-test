@@ -74,6 +74,14 @@
 			<classifier />
 		</dependency>
 		
+		<!-- Mapping -->
+		
+		<dependency>
+    		<groupId>net.sf.dozer</groupId>
+    		<artifactId>dozer</artifactId>
+    		<version>5.4.0</version>
+		</dependency>
+		
 		<!-- Framework dependencies for the Security Filter -->
 
 		<dependency>
