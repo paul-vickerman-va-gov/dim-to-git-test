@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+          
+	<mapping> 
+    	<class-a>gov.va.vba.framework.css.cssiam.domain.entities.CssUser</class-a>
+    	<class-b>gov.va.vba.css.ws.types.services.v1.CssUser</class-b>   
+    	<field>
+      		<a>networkLoginName</a>
+      		<b>networkLoginName</b>
+    	</field>
+    	<field>
+      		<a>userApplication</a>
+      		<b>userApplication</b>
+    	</field>
+    	<field>
+      		<a>userStations</a>
+      		<b>userStations</b>
+      		<b-hint>gov.va.vba.css.ws.types.services.v1.UserStation</b-hint>
+    	</field>
+    </mapping>  
+  
+    <mapping> 
+    	<class-a>gov.va.vba.framework.esb.transformers.TuxedoSecurityProfile</class-a>
+    	<class-b>gov.va.vba.css.ws.types.services.v1.CssSecurityProfile</class-b>   
+    	<field>
+      		<a>functions</a>
+      		<b>functions</b>
+      		<b-hint>gov.va.vba.css.ws.types.services.v1.Function</b-hint>
+    	</field>
+<!--     	<field> -->
+<!--       		<a>poaCodes</a> -->
+<!--       		<b>poaCodes</b> -->
+<!--       		<b-hint>java.lang.String</b-hint> -->
+<!--     	</field> -->
+  	</mapping>  
+
+</mappings>

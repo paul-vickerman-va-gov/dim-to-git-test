@@ -19,17 +19,26 @@
 <!-- 			</list> -->
 <!-- 		</property> -->
 <!-- 	</bean> -->
+
+  	<context:annotation-config />
+	<context:component-scan base-package="gov.va.vba.css" />
  
  	<jee:local-slsb id="commonSecurityServiceEJB" jndi-name="ejb/SecurityServiceV2Local"
       business-interface="gov.va.vba.framework.services.CommonSecurityServiceV2" />
+
+	<bean id="dozzerMapper" class="org.dozer.DozerBeanMapper">
+  		<property name="mappingFiles">
+    		<list>
+      			<value>TuxedoProfileToCssSecurityProfile.xml</value>
+    		</list>
+  		</property>
+	</bean>
 
   	<bean id="cssBean"
 		class="gov.va.vba.css.bo.CommonSecuritySystemBeanImpl">
 		<property name="commonSecurityServiceEJB" ref="commonSecurityServiceEJB" />
 	</bean>	
 
-  	<context:annotation-config />
-	<context:component-scan base-package="gov.va.vba.css" />
   
     <!--  Import other module context configuration -->
 <!--   	<import resource="classpath:core_datasource_context.xml" /> -->

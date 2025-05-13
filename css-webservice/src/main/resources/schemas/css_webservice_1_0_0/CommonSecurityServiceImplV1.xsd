@@ -9,16 +9,22 @@
 	<xs:element name="getCssUserStationsByApplicationResponse" type="tns:getCssUserStationsByApplicationResponse" />
 	<xs:element name="getSecurityProfile" type="tns:getSecurityProfile" />
 	<xs:element name="getSecurityProfileResponse" type="tns:getSecurityProfileResponse" />
+	
+	<!-- Faults -->
+	<xs:element name="cssAuthFault" type="tns:CssAuthFaultType" />
+	<xs:element name="cssFrameworkFault" type="tns:CssFrameworkFaultType" />
+	<xs:element name="cssRepoFault" type="tns:CssRepoFaultType" />
+	<xs:element name="cssRepoGenericFault" type="tns:CssRepoGenericFaultType" />
 
 	<xs:complexType name="getCssUserStationsByApplication">
 		<xs:sequence>
-			<xs:element name="arg0" type="xs:string" minOccurs="0" />
+			<xs:element name="cssApplicationName" type="xs:string" minOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="getCssUserStationsByApplicationResponse">
 		<xs:sequence>
-			<xs:element name="return" type="tns:cssUser" minOccurs="0" />
+			<xs:element name="return" type="tns:cssUser" minOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -26,14 +32,10 @@
 		<xs:sequence>
 			<xs:element name="networkLoginName" type="xs:string"
 				minOccurs="0" />
-			<xs:element name="selectedStation" type="tns:userStation"
-				minOccurs="0" />
 			<xs:element name="userApplication" type="xs:string"
 				minOccurs="0" />
 			<xs:element name="userStations" type="tns:userStation"
 				nillable="true" minOccurs="0" maxOccurs="unbounded" />
-			<xs:element name="vaAdUsername" type="xs:string"
-				minOccurs="0" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -49,8 +51,8 @@
 
 	<xs:complexType name="getSecurityProfile">
 		<xs:sequence>
-			<xs:element name="arg0" type="xs:string" minOccurs="0" />
-			<xs:element name="arg1" type="xs:string" minOccurs="0" />
+			<xs:element name="cssApplicationName" type="xs:string" minOccurs="1" />
+			<xs:element name="stationId" type="xs:string" minOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -62,18 +64,10 @@
 	</xs:complexType>
 
 	<xs:complexType name="cssSecurityProfile">
-		<xs:complexContent>
-			<xs:extension base="tns:tuxedoSecurityProfile">
-				<xs:sequence />
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
-	<xs:complexType name="tuxedoSecurityProfile">
 		<xs:sequence>
 			<xs:element name="applRole" type="xs:string" minOccurs="0" />
 			<xs:element name="bdnNum" type="xs:string" minOccurs="0" />
-			<xs:element name="diagInd" type="xs:unsignedShort" />
+			<xs:element name="diagInd" type="xs:string" minOccurs="0" />
 			<xs:element name="emailAddress" type="xs:string"
 				minOccurs="0" />
 			<xs:element name="fileNum" type="xs:string" minOccurs="0" />
@@ -91,9 +85,9 @@
 			<xs:element name="phNum" type="xs:string" minOccurs="0" />
 			<xs:element name="poaCodes" type="xs:string" nillable="true"
 				minOccurs="0" maxOccurs="unbounded" />
-			<xs:element name="retCode" type="xs:unsignedShort" />
+			<xs:element name="retCode" type="xs:int" />
 			<xs:element name="secLevel" type="xs:string" minOccurs="0" />
-			<xs:element name="secOfficeInd" type="xs:unsignedShort" />
+			<xs:element name="secOfficeInd" type="xs:string" minOccurs="0" />
 			<xs:element name="ssn" type="xs:string" minOccurs="0" />
 			<xs:element name="stationName" type="xs:string" minOccurs="0" />
 			<xs:element name="suffix" type="xs:string" minOccurs="0" />
@@ -104,11 +98,37 @@
 
 	<xs:complexType name="function">
 		<xs:sequence>
-			<xs:element name="assignedValue" type="xs:string"
-				minOccurs="0" />
-			<xs:element name="disableInd" type="xs:unsignedShort" />
+			<xs:element name="assignedValue" type="xs:string" minOccurs="0" />
+			<xs:element name="disableInd" type="xs:string" minOccurs="0" />
 			<xs:element name="name" type="xs:string" minOccurs="0" />
 		</xs:sequence>
 	</xs:complexType>
 	
+	<xs:complexType name="CssAuthFaultType">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" />
+			<xs:element name="detail" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CssFrameworkFaultType">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" />
+			<xs:element name="detail" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CssRepoFaultType">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" />
+			<xs:element name="detail" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CssRepoGenericFaultType">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" />
+			<xs:element name="detail" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
