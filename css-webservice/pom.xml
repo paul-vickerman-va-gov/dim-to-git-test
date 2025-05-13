@@ -19,17 +19,30 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<repositories>
+<!--		<repository>-->
+<!--			<id>central</id>-->
+<!--			<url>http://vbawbtappdev2.vba.va.gov:8081/nexus/content/repositories/central/</url>-->
+<!--		</repository>-->
+<!--		<repository>-->
+<!--			<id>thirdparty</id>-->
+<!--			<url>http://vbawbtappdev2.vba.va.gov:8081/nexus/content/repositories/thirdparty/</url>-->
+<!--		</repository>-->
+<!--		<repository>-->
+<!--			<id>releases</id>-->
+<!--			<url>http://vbawbtappdev2.vba.va.gov:8081/nexus/content/repositories/releases/</url>-->
+<!--		</repository>-->
+
 		<repository>
 			<id>central</id>
-			<url>http://vbawbtappdev2.vba.va.gov:8081/nexus/content/repositories/central/</url>
+			<url>http://vaausappcrp890.aac.va.gov:8081/nexus/content/repositories/central/</url>
 		</repository>
 		<repository>
 			<id>thirdparty</id>
-			<url>http://vbawbtappdev2.vba.va.gov:8081/nexus/content/repositories/thirdparty/</url>
+			<url>http://vaausappcrp890.aac.va.gov:8081/nexus/content/repositories/thirdparty/</url>
 		</repository>
 		<repository>
 			<id>releases</id>
-			<url>http://vbawbtappdev2.vba.va.gov:8081/nexus/content/repositories/releases/</url>
+			<url>http://vaausappcrp890.aac.va.gov:8081/nexus/content/repositories/releases/</url>
 		</repository>
 	</repositories>
 	<dependencies>
