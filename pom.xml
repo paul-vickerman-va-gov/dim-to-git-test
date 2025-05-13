@@ -4,16 +4,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gov.va.vba.css</groupId>
 	<artifactId>common-security-services-parent</artifactId>
-	<version>1.0.4-1-SNAPSHOT</version>
+	<version>1.0.5-7-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Parent BGS Common Security System Services Application</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		
-		<bep.framework.version>6.0.3-6</bep.framework.version>
-		<ws.framework.version>2.0.2-4</ws.framework.version>
-		<dozer.version>5.4.0</dozer.version>
+		<bep.framework.version>6.0.4-7-SNAPSHOT</bep.framework.version>
+		<ws.framework.version>2.0.3-7-SNAPSHOT</ws.framework.version>
 
 		<opensaml.version>2.6.0</opensaml.version>
 		<wss4j.version>1.6.3</wss4j.version>
@@ -21,7 +20,6 @@
 		<spring.version>4.3.2.RELEASE</spring.version>
 		<spring.security.version>4.2.2.RELEASE</spring.security.version>
 
-		<sl4j.version>1.6.3</sl4j.version>
 		<junit.version>4.4</junit.version>
 		<powermock.version>1.6.2</powermock.version>
 	</properties>
@@ -113,13 +111,6 @@
 			<version>${ws.framework.version}</version>
 		</dependency>
 		
-		<!-- Mapping -->
-		<dependency>
-			<groupId>net.sf.dozer</groupId>
-			<artifactId>dozer</artifactId>
-			<version>${dozer.version}</version>
-		</dependency>
-		
 		<!-- if you use WebLogic -->
 		<!-- All weblogic 10.3.6.0 dependencies must be set to scope=provided -->
 		<!-- This just needs to be in the parent pom. -->
@@ -172,23 +163,6 @@
 <!-- 			<artifactId>wss4j-ws-security-dom</artifactId> -->
 <!--     		<version>${wss4j.version}</version> -->
 <!-- 		</dependency> -->
-				
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>${sl4j.version}</version>
-			<scope>provided</scope>
-			<exclusions>
-				<exclusion>
-					<artifactId>log4j</artifactId>
-					<groupId>log4j</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>slf4j-api</artifactId>
-					<groupId>org.slf4j</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
 		
 		<dependency>
 			<groupId>org.springframework.security.extensions</groupId>
