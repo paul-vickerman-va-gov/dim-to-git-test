@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gov.va.vba.css</groupId>
 	<artifactId>common-security-services-parent</artifactId>
-	<version>1.0.5-9-SNAPSHOT</version>
+	<version>1.0.5-8-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Parent BGS Common Security System Services Application</name>
 	<properties>
